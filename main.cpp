@@ -30,10 +30,10 @@ std::string checkDupe(std::string s) {
     memset(alphabets,false,26);
     for(int i=0;i<s.size();i++)
     {
-        if(alphabets[s.at(i)-'a']==false)    // If that character was marked false i.e if it was not present in original 
+        if(alphabets[s.at(i)-'a']==false)
         {
-            alphabets[s.at(i)-'a']=true;    // mark that character true
-            p.push_back(s.at(i));           // Insert that character in string p
+            alphabets[s.at(i)-'a']=true;   
+            p.push_back(s.at(i));           
         }
     }
     return p;
@@ -41,24 +41,18 @@ std::string checkDupe(std::string s) {
 int main() {
     std::cout << "Hello Cwordle!\n";
     std::string chosenWord = getNewWord();
-
-    // debug line
-    //std::cout << chosenWord << "\n";
-
     // begin guess routine
     std::string correct; // correct letters
     std::string wrongSpot; // correct letters but wrong space
     std::string notInWord; // letters that are not in the word at all
     for (int b = 0; b < 6; b++) {
         std::string guessedWord = guessWord();
-        // Ends the program if guessed correctly
         if (guessedWord == chosenWord) {
             std::cout << "\nCorrect! The word was: " << chosenWord;
             return 0;
         }
         // Check letters in the correct spaces
         for (int i = 0; i < 5; i++) {
-            // std::vector<char> l(g.begin(), g.end());
             if (chosenWord[i] == guessedWord[i]) {
                 correct.push_back(chosenWord[i]);
             }
