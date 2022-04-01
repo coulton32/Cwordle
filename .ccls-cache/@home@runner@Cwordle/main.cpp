@@ -5,7 +5,7 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
-
+// by github/coulton32 
 std::string getNewWord() {
     srand(time(NULL));
     std::vector<std::string> words;
